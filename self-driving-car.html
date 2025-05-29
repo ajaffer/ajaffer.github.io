@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Self-Driving RC Car</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Self-Driving RC Car</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="blog.html">Blog</a>
+      <a href="resume.pdf" target="_blank">Resume</a>
+      <a href="mailto:ahsen.jaffer@gmail.com">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <p>I designed and built a self-driving RC car platform to explore real-time perception and control using embedded compute. This hands-on side project helped me better understand how machine learning models interact with physical systems and what trade-offs exist when deploying them on constrained hardware.</p>
+
+    <p>The project was built using the open-source <a href="https://www.donkeycar.com/" target="_blank">DonkeyCar platform</a>, a well-known framework for autonomous RC vehicles. I followed the base setup to get started quickly, then made modifications to the training loop, camera mount, and control logic to experiment with onboard inference and improve driving stability.</p>
+
+    <ul>
+      <li><strong>Perception Stack:</strong> Trained a convolutional neural network (CNN) using behavioral cloning to predict steering angles from camera input.</li>
+      <li><strong>Hardware Platform:</strong> Used a Raspberry Pi 3 with a camera module for onboard processing and real-time control.</li>
+      <li><strong>Deployment Experience:</strong> Tuned parameters and processing pipeline to run live inference on the Pi and iterated based on track performance.</li>
+      <li><strong>Exploration Areas:</strong> Experimented with data augmentation and custom driving modes to improve generalization and robustness.</li>
+    </ul>
+
+    <p>This project was a deep dive into practical ML deployment on edge devices and gave me valuable insight into the challenges of real-time decision-making, perception reliability, and hardware limitations. It also sparked my interest in systems where safety and autonomy intersect — such as fleet safety and ADAS platforms.</p>
+
+    <h2>Gallery</h2>
+    <img src="./media/20170715_091052.jpg" alt="RC Car Close View" style="max-width: 100%; height: auto; margin-bottom: 1rem;">
+
+    <h2>Demo Video</h2>
+    <video width="100%" controls>
+      <source src="./media/VID_20181130_195937.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ahsen Jaffer</p>
+  </footer>
+</body>
+</html>
