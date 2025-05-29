@@ -26,3 +26,10 @@ main ul {
   list-style: disc;
   padding-left: 20px;
 }
+
+.gallery img {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px;
+  background-color: #f9f9f9;
+}
