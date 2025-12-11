@@ -4,74 +4,134 @@
   <meta charset="UTF-8">
   <title>Diaspora Mentorship Network</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Reuse your existing styles -->
+  <!-- Reuse your existing site styles -->
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Optional, small overrides just for this page */
-    .hero {
-      max-width: 800px;
+    /* Page-specific tweaks */
+    .page-wrap {
+      max-width: 840px;
       margin: 40px auto;
+      padding: 0 16px;
     }
     .btn {
       display: inline-block;
       padding: 10px 18px;
-      margin: 8px 8px 0 0;
+      margin: 8px 12px 0 0;
       text-decoration: none;
       border-radius: 4px;
+      font-size: 0.95rem;
     }
     .btn-primary {
       background: #0366d6;
       color: #fff;
     }
     .btn-secondary {
-      background: #eee;
+      background: #e9ecef;
       color: #333;
+    }
+    .btn-primary:hover {
+      background: #024c9b;
+    }
+    .btn-secondary:hover {
+      background: #d0d4d8;
+    }
+    .pill {
+      display: inline-block;
+      background: #f1f3f5;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      margin-right: 6px;
+      margin-top: 4px;
+    }
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+    ul {
+      padding-left: 1.2rem;
     }
   </style>
 </head>
 <body>
 
-  <div class="hero">
+  <div class="page-wrap">
     <h1>Diaspora Mentorship Network</h1>
     <p>
-      A volunteer initiative connecting experienced diaspora engineers with 
-      mid-career developers (5+ years experience) for focused, 20–30 minute 
-      1:1 mentorship sessions.
+      A volunteer initiative connecting experienced diaspora engineers with
+      mid-career developers (typically 5+ years experience) for focused, 
+      20–30 minute 1:1 mentorship sessions on real career and technical problems.
+    </p>
+    <p>
+      The initial focus is on engineers from Pakistan and similar backgrounds who are 
+      preparing for senior or staff roles and want guidance from people who understand 
+      both their local constraints and global expectations.
     </p>
 
-    <h2>Join as a Mentor</h2>
+    <h2>Who this is for</h2>
+    <p><strong>Mentees:</strong> mid-career engineers who want help with topics like:</p>
+    <span class="pill">System design thinking</span>
+    <span class="pill">Senior/staff interview prep</span>
+    <span class="pill">Career navigation</span>
+    <span class="pill">Technical leadership</span>
+    <span class="pill">Backend / distributed systems</span>
+
+    <p><strong>Mentors:</strong> diaspora engineers (Pakistani and non-Pakistani) with
+      industry experience who are willing to donate a small number of short sessions 
+      each month.
+    </p>
+
+    <h2>Get involved</h2>
+
+    <h3>Join as a mentor</h3>
     <p>
-      Volunteer a small number of sessions per month and help engineers who
-      are aiming to grow into senior and staff-level roles.
+      Volunteer a small number of focused sessions each month and support motivated 
+      engineers who are trying to grow into senior and staff-level roles. You control 
+      your own availability and boundaries.
     </p>
     <a class="btn btn-primary"
        href="https://docs.google.com/forms/d/e/1FAIpQLSesckjuFURRN4xvgAM2otXKhinvLKUw5zuTrPA-TRdeCXqLHw/viewform"
        target="_blank" rel="noopener">
-      Mentor signup form
+      ➤ Mentor signup form
     </a>
 
-    <h2>Apply as a Mentee</h2>
+    <h3>Apply as a mentee</h3>
     <p>
-      For engineers with 5+ years of experience who want guidance on system design, 
-      interviews, career decisions, or technical leadership.
+      For engineers with roughly 5+ years of experience who have a specific question,
+      challenge, or upcoming opportunity and want targeted feedback rather than generic advice.
+      Sessions are most useful when you come prepared with concrete context and 1–3 focused questions.
     </p>
     <a class="btn btn-secondary"
        href="https://docs.google.com/forms/d/e/1FAIpQLSdlb1G3xMNjFMl_xKE9GjuPiy2mnr4SAyS-MaPSmnHrb5LnzQ/viewform"
        target="_blank" rel="noopener">
-      Mentee signup form
+      ➤ Mentee signup form
     </a>
 
-    <h2>How Matching Works</h2>
+    <h2>How matching works</h2>
     <p>
-      1. Mentees apply with their background, topic, and availability.<br>
-      2. We manually review each request and match to a mentor whose skills align.<br>
-      3. Sessions are scheduled via the mentor’s Calendly link, respecting their time and boundaries.<br>
-      4. Each session is a focused, 20–30 minute conversation on a specific topic or question.
+      The matching process is intentionally simple and curated to protect mentor time and
+      create high-quality conversations:
     </p>
+    <ol>
+      <li><strong>Mentees apply</strong> with background, topic, specific goal, and availability.</li>
+      <li><strong>Requests are reviewed</strong> to ensure they are clear and appropriate for the network.</li>
+      <li><strong>Manual matching</strong> pairs each mentee with a mentor whose expertise and time zone align.</li>
+      <li><strong>Scheduling happens via the mentor’s Calendly (or similar)</strong>, so mentors keep full control of their calendars and can pause or adjust availability at any time.</li>
+    </ol>
+    <p>
+      Sessions are typically 20–30 minutes and focused on a single theme:
+      for example, walking through a system design thought process, reviewing a resume for a specific role,
+      or talking through how to approach a staff-level interview loop.
+    </p>
+
+    <h2>Expectations</h2>
+    <ul>
+      <li><strong>Mentees</strong> commit to showing up on time, coming prepared, and respecting mentor boundaries.</li>
+      <li><strong>Mentors</strong> are asked only to offer honest, experience-based guidance; no ongoing obligation is assumed beyond the sessions they choose to make available.</li>
+    </ul>
 
     <h2>Contact</h2>
     <p>
-      For questions or suggestions, email 
+      For questions, suggestions, or interest in helping shape the program, email
       <a href="mailto:ahsen.jaffer@gmail.com">ahsen.jaffer@gmail.com</a>.
     </p>
   </div>
