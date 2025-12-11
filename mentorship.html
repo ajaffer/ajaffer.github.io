@@ -11,12 +11,12 @@
     .page-wrap {
       max-width: 840px;
       margin: 40px auto;
-      padding: 0 16px;
+      padding: 0 16px 56px;
     }
     .btn {
       display: inline-block;
       padding: 10px 18px;
-      margin: 8px 12px 0 0;
+      margin: 8px 12px 12px 0;
       text-decoration: none;
       border-radius: 4px;
       font-size: 0.95rem;
@@ -44,11 +44,40 @@
       margin-right: 6px;
       margin-top: 4px;
     }
-    h1, h2, h3 {
+    h1 {
       margin-top: 0;
+      margin-bottom: 0.5rem;
     }
-    ul {
+    h2 {
+      margin-top: 2.25rem;
+      margin-bottom: 0.4rem;
+    }
+    h3 {
+      margin-top: 1.4rem;
+      margin-bottom: 0.25rem;
+    }
+    p {
+      margin-top: 0.4rem;
+      margin-bottom: 0.7rem;
+    }
+    ul, ol {
       padding-left: 1.2rem;
+      margin-top: 0.4rem;
+      margin-bottom: 0.7rem;
+    }
+    .subdued {
+      color: #555;
+      font-size: 0.9rem;
+    }
+    .section-intro {
+      margin-bottom: 0.4rem;
+    }
+    .faq-item {
+      margin-bottom: 0.9rem;
+    }
+    .faq-item strong {
+      display: block;
+      margin-bottom: 0.15rem;
     }
   </style>
 </head>
@@ -59,23 +88,40 @@
     <p>
       A volunteer initiative connecting experienced diaspora engineers with
       mid-career developers (typically 5+ years experience) for focused, 
-      20–30 minute 1:1 mentorship sessions on real career and technical problems.
+      20-30 minute 1:1 mentorship sessions on real career and technical problems.
+    </p>
+    <p class="subdued">
+      This is a small, curated, experiment-first pilot rather than a big platform.
+      The goal is to create a high-trust space where serious engineers can get
+      practical, context-aware guidance from people who have already walked a similar path.
+    </p>
+
+    <h2>Why this exists</h2>
+    <p>
+      There are excellent global mentorship and interview platforms already, but they are
+      generic by design. Many engineers in Pakistan and similar ecosystems either never
+      reach those platforms, or struggle to find mentors who understand their educational
+      context, constraints, and reality on the ground.
     </p>
     <p>
-      The initial focus is on engineers from Pakistan and similar backgrounds who are 
-      preparing for senior or staff roles and want guidance from people who understand 
-      both their local constraints and global expectations.
+      At the same time, diaspora engineers often want to give back, but do not have a
+      lightweight, structured way to do it that respects their time and boundaries.
+    </p>
+    <p>
+      This network tries to bridge that gap: a small, curated group of mentors and mentees,
+      matched for focused conversations on specific topics like system design, career
+      navigation, and senior or staff level interview preparation.
     </p>
 
     <h2>Who this is for</h2>
-    <p><strong>Mentees:</strong> mid-career engineers who want help with topics like:</p>
+    <p class="section-intro"><strong>Mentees</strong> &ndash; mid-career engineers who want help with topics like:</p>
     <span class="pill">System design thinking</span>
-    <span class="pill">Senior/staff interview prep</span>
+    <span class="pill">Senior or staff interview prep</span>
     <span class="pill">Career navigation</span>
     <span class="pill">Technical leadership</span>
-    <span class="pill">Backend / distributed systems</span>
+    <span class="pill">Backend and distributed systems</span>
 
-    <p><strong>Mentors:</strong> diaspora engineers (Pakistani and non-Pakistani) with
+    <p class="section-intro"><strong>Mentors</strong> &ndash; diaspora engineers (Pakistani and non-Pakistani) with
       industry experience who are willing to donate a small number of short sessions 
       each month.
     </p>
@@ -85,8 +131,9 @@
     <h3>Join as a mentor</h3>
     <p>
       Volunteer a small number of focused sessions each month and support motivated 
-      engineers who are trying to grow into senior and staff-level roles. You control 
-      your own availability and boundaries.
+      engineers who are trying to grow into senior and staff level roles. You control 
+      your own availability and boundaries. Most mentors aim for 1-2 short sessions
+      per month, but you decide what is sustainable.
     </p>
     <a class="btn btn-primary"
        href="https://docs.google.com/forms/d/e/1FAIpQLSesckjuFURRN4xvgAM2otXKhinvLKUw5zuTrPA-TRdeCXqLHw/viewform"
@@ -98,7 +145,7 @@
     <p>
       For engineers with roughly 5+ years of experience who have a specific question,
       challenge, or upcoming opportunity and want targeted feedback rather than generic advice.
-      Sessions are most useful when you come prepared with concrete context and 1–3 focused questions.
+      Sessions are most useful when you come prepared with concrete context and 1-3 focused questions.
     </p>
     <a class="btn btn-secondary"
        href="https://docs.google.com/forms/d/e/1FAIpQLSdlb1G3xMNjFMl_xKE9GjuPiy2mnr4SAyS-MaPSmnHrb5LnzQ/viewform"
@@ -113,21 +160,82 @@
     </p>
     <ol>
       <li><strong>Mentees apply</strong> with background, topic, specific goal, and availability.</li>
-      <li><strong>Requests are reviewed</strong> to ensure they are clear and appropriate for the network.</li>
+      <li><strong>Requests are reviewed</strong> to ensure they are clear, serious, and appropriate for the network.</li>
       <li><strong>Manual matching</strong> pairs each mentee with a mentor whose expertise and time zone align.</li>
-      <li><strong>Scheduling happens via the mentor’s Calendly (or similar)</strong>, so mentors keep full control of their calendars and can pause or adjust availability at any time.</li>
+      <li><strong>Scheduling happens via the mentor calendar tool</strong> (for example, Calendly), so mentors keep full control of their calendars and can pause or adjust availability at any time.</li>
     </ol>
     <p>
-      Sessions are typically 20–30 minutes and focused on a single theme:
+      Sessions are typically 20-30 minutes and focused on a single theme:
       for example, walking through a system design thought process, reviewing a resume for a specific role,
-      or talking through how to approach a staff-level interview loop.
+      or talking through how to approach a staff level interview loop.
     </p>
 
     <h2>Expectations</h2>
     <ul>
-      <li><strong>Mentees</strong> commit to showing up on time, coming prepared, and respecting mentor boundaries.</li>
+      <li><strong>Mentees</strong> commit to showing up on time, coming prepared, and respecting mentor boundaries. This includes not treating the conversation as a referral request.</li>
       <li><strong>Mentors</strong> are asked only to offer honest, experience-based guidance; no ongoing obligation is assumed beyond the sessions they choose to make available.</li>
     </ul>
+
+    <h2>FAQ</h2>
+
+    <div class="faq-item">
+      <strong>Why are you doing this?</strong>
+      <span>
+        Many talented engineers in Pakistan do not have access to senior mentorship, especially for system design,
+        career navigation, and interview strategy. At the same time, diaspora engineers often want to help but lack
+        a simple way to do so in a structured, low-commitment format. This pilot is an attempt to create that bridge.
+      </span>
+    </div>
+
+    <div class="faq-item">
+      <strong>Do platforms like ADPList or interviewing.io already solve this?</strong>
+      <span>
+        They solve important parts of the problem, but they are general purpose by design. They rarely provide
+        culturally aligned, context aware mentorship for engineers in Pakistan, and they do not curate a small,
+        trust-based network focused specifically on this demographic. This initiative is intentionally narrow and
+        community driven rather than broad and generic.
+      </span>
+    </div>
+
+    <div class="faq-item">
+      <strong>Is this free?</strong>
+      <span>
+        Yes. Mentors volunteer their time. There are no fees for the pilot.
+      </span>
+    </div>
+
+    <div class="faq-item">
+      <strong>How much time do mentors commit?</strong>
+      <span>
+        Mentors set their own availability. Many will offer 1-2 short sessions per month. There is no expectation
+        of ongoing weekly involvement unless a mentor chooses to offer more time.
+      </span>
+    </div>
+
+    <div class="faq-item">
+      <strong>Do mentees get referrals?</strong>
+      <span>
+        No. The purpose of these conversations is mentorship: sharpening thinking, strategy, and clarity. Any referrals
+        that happen later are entirely at the mentor's discretion and should not be expected.
+      </span>
+    </div>
+
+    <div class="faq-item">
+      <strong>Do mentors need to prepare material?</strong>
+      <span>
+        No. The format is closer to office hours than to a class. Mentees are expected to bring specific questions and
+        context. Mentors bring their experience and judgment.
+      </span>
+    </div>
+
+    <div class="faq-item">
+      <strong>Why focus on Pakistan first?</strong>
+      <span>
+        The initial focus is on Pakistan because that is where the gap is most visible and personally familiar,
+        and where diaspora mentors can be most context aware. Over time, the model may expand, but it starts where
+        the need and alignment are clearest.
+      </span>
+    </div>
 
     <h2>Contact</h2>
     <p>
