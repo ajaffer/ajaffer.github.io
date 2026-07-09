@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GlossaryMe – AI-Powered Personal Glossary</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>GlossaryMe – AI-Powered Personal Glossary</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="blog.html">Blog</a>
+      <a href="mailto:ahsen.jaffer@gmail.com">Contact for Resume</a>
+    </nav>
+  </header>
+
+  <main>
+    <p>GlossaryMe is a browser extension for Chrome and Firefox that quietly builds a personal, searchable technical glossary as you browse. When you read a dense engineering page, it extracts and defines the domain-specific terms using a configurable LLM backend — Anthropic (Claude), OpenAI, or a fully local model via Ollama — then stores them locally so your knowledge compounds over time. There is no backend and no accounts: your glossary lives entirely in your browser, and full page text is never stored after extraction.</p>
+
+    <ul>
+      <li><strong>Problem:</strong> Terms you look up while reading rarely stick, and nothing passively captures them. GlossaryMe turns everyday browsing into a durable, searchable glossary you can answer "where did I read this?" from in two clicks.</li>
+      <li><strong>AI integration:</strong> A background worker sends cleaned page text to your chosen provider through a swappable extractor registry (Anthropic, OpenAI, or a local Ollama model), enforcing a strict JSON schema with retry-on-invalid-JSON, confidence thresholds, and rejection of generic or quote-less terms. Every capture is logged regardless of outcome, so a provider error never interrupts browsing.</li>
+      <li><strong>Architecture:</strong> Built with WXT (Vite + React + TypeScript), producing both the Chrome (MV3) and Firefox builds from a single source. The code follows a hexagonal ports-and-adapters design: a browser/DB/HTTP-agnostic domain core sits behind ports, with adapters — IndexedDB repositories, the settings store, and the provider registry — wired in one composition root, so any piece can be swapped or faked in tests without touching business logic.</li>
+      <li><strong>Data model:</strong> IndexedDB with separate stores for terms, sources, and mentions (indexed by term, source, and a compound key). Term keys are normalized (lowercase, Unicode NFC, punctuation-stripped) and merged with alias detection, so the same concept from multiple pages appears once, with a mention linking back to each source. Settings live separately in chrome.storage.local.</li>
+      <li><strong>Privacy &amp; cost:</strong> Only terms, definitions, source metadata, and short context quotes are persisted — never full article text. With the Ollama backend, extraction runs entirely on a local model, so page data never leaves your machine at all. Any API key stays in local settings, and each capture shows an estimated cost (zero for local models).</li>
+      <li><strong>Outcome:</strong> Built end-to-end with a Vitest test suite — the capture pipeline, dedupe/merge logic, side-panel UI, and Markdown/JSON export all function against real technical pages (AWS docs, engineering blogs, GitHub READMEs).</li>
+    </ul>
+
+    <p>
+      <a href="https://github.com/ajaffer/glossaryMe" target="_blank">Source on GitHub</a>
+    </p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ahsen Jaffer</p>
+  </footer>
+</body>
+</html>
