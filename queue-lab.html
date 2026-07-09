@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Queue Lab – Message Bus Benchmarking &amp; Fan-Out</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Queue Lab – Message Bus Benchmarking &amp; Fan-Out</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="blog.html">Blog</a>
+      <a href="mailto:ahsen.jaffer@gmail.com">Contact for Resume</a>
+    </nav>
+  </header>
+
+  <main>
+    <p>Queue Lab is a queue-benchmark harness: the same notification fan-out workload run through multiple queue backends behind one explicit messaging contract, compared on latency, throughput, loss, backlog, retry, and ordering from real runs. Only the messaging adapter changes per backend, so the differences you observe are the queues' own, not the application's. The deliverable isn't a large codebase — it's a defensible set of measured findings.</p>
+
+    <ul>
+      <li><strong>Problem:</strong> "Which message backend survives slow consumers and bursty load?" is usually answered by folklore. Queue Lab answers it with evidence — comparison tables and failure write-ups from real runs, rather than vendor promises.</li>
+      <li><strong>Design:</strong> One fan-out pipeline (ingest an event, expand it into one delivery per subscriber, deliver each) runs unchanged across every backend; only the <code>MessageBus</code> implementation is swapped. Two intentional bus crossings — an <code>events</code> topic and a <code>deliveries</code> topic — let celebrity fan-out (one event exploding into thousands of deliveries) show up without blocking ingestion.</li>
+      <li><strong>Backends:</strong> Currently runs across an in-memory bus, Redis Pub/Sub, and Kafka, each behind a capability-gated contract test it must pass. RabbitMQ, SQS, Kinesis, and Google Pub/Sub are the planned next axes (pull-based, AMQP, and managed-throttling behavior).</li>
+      <li><strong>Honest measurement:</strong> Loss is computed from the edge, not from a backend's own counters — every event and delivery carries a stable id, and loss and duplicates are derived from expected-versus-observed ids in a result ledger. Delivery is at-least-once with a deterministic idempotency key; the harness never claims end-to-end exactly-once.</li>
+      <li><strong>Key finding:</strong> Under a sustained slow consumer, Redis Pub/Sub dropped ~93% of deliveries while Kafka lost none, holding them as backlog — a concrete illustration of best-effort push versus a durable log.</li>
+      <li><strong>Stack &amp; reproducibility:</strong> Java 17 and Spring Boot, with Testcontainers integration tests running against real Redis and Kafka so the findings reproduce with a single <code>./mvnw verify</code>.</li>
+    </ul>
+
+    <p>
+      <a href="https://github.com/ajaffer/queue-lab" target="_blank">Source on GitHub</a> &middot;
+      <a href="https://github.com/ajaffer/queue-lab/blob/main/FINDINGS.md" target="_blank">Read the measured findings</a>
+    </p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ahsen Jaffer</p>
+  </footer>
+</body>
+</html>
