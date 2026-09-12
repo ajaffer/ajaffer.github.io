@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Systems Experiments – Consistent Hashing, Bloom Filters, Cache Design</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Systems Experiments – Consistent Hashing, Bloom Filters, Cache Design</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="blog.html">Blog</a>
+      <a href="mailto:ahsen.jaffer@gmail.com">Contact for Resume</a>
+    </nav>
+  </header>
+
+  <main>
+    <p>A collection of small, self-contained implementations of core distributed-systems and data-structure building blocks — consistent hashing with vnode tuning, a Bloom filter, and a progression of LRU cache designs from a naive linked-list cache up through a TinyLFU-admission cache modeled on Caffeine. Each one is paired with a real, runnable experiment rather than just a class file, so the behavior is measured, not asserted.</p>
+
+    <ul>
+      <li><strong>Consistent hashing:</strong> a Murmur3-128 hash ring with configurable virtual nodes per physical node. Measures how key movement and load imbalance behave as a 4th node joins a 3-node cluster, and compares the measured coefficient of variation against the closed-form prediction √((N-1)/(NV+1)).</li>
+      <li><strong>Bloom filter:</strong> sized from expected element count and target false-positive rate using the standard optimal formulas, with Kirsch–Mitzenmacher double hashing so one Murmur3-128 hash stands in for k independent ones. Measured false-positive rate tracked against the configured target.</li>
+      <li><strong>Cache design progression:</strong> a plain O(1) LRU cache, a lock-striped variant, a Redis-style sampled-eviction cache, and a miniature Caffeine with TinyLFU admission — demonstrating a real failure mode plain LRU can't handle: a one-shot scan of unique keys wipes its entire hot set, while frequency-aware admission keeps it intact.</li>
+      <li><strong>Stack &amp; reproducibility:</strong> Java 23, Gradle, JUnit 5, Guava — every result in the live demo below is computed by calling this same source code directly over HTTP, not a reimplementation of it.</li>
+    </ul>
+
+    <p>
+      <a href="https://experiments--ahsenjafferdev.replit.app/" target="_blank">Live interactive demo</a> &middot;
+      <a href="https://github.com/ajaffer/experiments" target="_blank">Source on GitHub</a>
+    </p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ahsen Jaffer</p>
+  </footer>
+</body>
+</html>
