@@ -155,7 +155,7 @@
     <ul>
       <li><strong>Typed, not prose:</strong> every few seconds a rolling window of transcript becomes a phase <em>choice</em> plus bounded scores for answered-question, depth, clarity, and rambling risk. Values, not paragraphs, so thresholds and rate limits are just code.</li>
       <li><strong>Suppression is the product:</strong> 111 of 119 judgments in this session were discarded &mdash; below threshold, unchanged, low-confidence, or too soon after the last card. A correct signal can still be bad product behavior.</li>
-      <li><strong>Code keeps what models are bad at:</strong> preconditions (no open question, too little speech, turn too short) stop a call being made at all, and duration and counting stay in code, because Jev 1.13 does not count reliably.</li>
+      <li><strong>Some questions never reach the model:</strong> preconditions in code &mdash; no open question, too little candidate speech, a turn too short to ramble &mdash; blocked <strong>81 of 200 questions</strong> in this session, 40% of them, before a call was made. Duration and counting stay in code too, because <a href="https://docs.typesafe.ai/model-jaggedness/jev-1.13.md">Jev 1.13 does not count reliably</a>; TypeSafe's own guidance is that extraction is a judgment and arithmetic is not.</li>
       <li><strong>Cost:</strong> a quarter of a cent for the whole 10-minute interview &mdash; 39 calls, 60k input tokens, at Jev's $0.042 per million input tokens with output free. About 1.5&cent; per interview-hour, at a median 119&nbsp;ms per call, which is what makes a per-tick cadence viable at all.</li>
     </ul>
 
@@ -305,7 +305,11 @@ document.querySelectorAll(".sp").forEach(b => b.addEventListener("click", () => 
 }));
 
 (function init() {
-  const lats = SESSION.decisions.map(d => d.latency_ms).filter(Boolean).sort((a, b) => a - b);
+  // One request answers every signal in a tick, so a per-decision median counts
+  // the same call several times. Median per call is what the copy claims.
+  const perCall = new Map();
+  for (const d of SESSION.decisions) perCall.set(d.window_end_ms, d.latency_ms);
+  const lats = [...perCall.values()].filter(Boolean).sort((a, b) => a - b);
   $("t-lat").innerHTML = Math.round(lats[Math.floor(lats.length / 2)] || 0) + "<small>ms</small>";
   $("foot").textContent =
     `Replay of a recorded session · signal set ${SESSION.signal_set_version} · ` +
@@ -318,7 +322,7 @@ document.querySelectorAll(".sp").forEach(b => b.addEventListener("click", () => 
 </script>
 
   <footer>
-    <p>&copy; 2025 Ahsen Jaffer</p>
+    <p>&copy; 2026 Ahsen Jaffer</p>
   </footer>
 </body>
 </html>
